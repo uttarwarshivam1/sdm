@@ -1,14 +1,15 @@
-const express = require('express');
-const app = express();
+const express=require("express");
+const app=express();
+const path=require("path");
 
-app.get('/', function (req, resp) {
-    resp.send("Hello shivam");
+app.get("/",function(req,res){
+    res.send("Welcome to IACSD Computer Solutions India Limited");
+
 });
-app.get('/home', function (req, resp) {
-    resp.sendFile('./home.html', { root: __dirname })
+
+app.get("/home",function(req,resp){
+    resp.sendFile(path.join(__dirname,"./public/index.html"));
 });
-app.get('/form', function (req, resp) {
-    resp.sendFile('./form.html', { root: __dirname })
-});
+
 app.listen(8000);
-console.log("Running");     
+console.log("server running");
